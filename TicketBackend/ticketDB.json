@@ -1,0 +1,18 @@
+[
+  {
+    "Guid": "21c23d47-df20-4943-9be0-41378c614dca",
+    "From": "1",
+    "To": "unknown",
+    "Subject": "1",
+    "Description": "1",
+    "Priority": "Niedrig"
+  },
+  {
+    "Guid": "01d063aa-1f5b-4b98-862f-5c0a2c81cfc8",
+    "From": "3",
+    "To": "unknown",
+    "Subject": "3",
+    "Description": "3",
+    "Priority": "Hoch"
+  }
+]
