@@ -32,7 +32,7 @@ public class TicketController : ControllerBase
             List<Ticket> jsonObject = JsonConvert.DeserializeObject<List<Ticket>>(jsonString);
 
 
-            List<Ticket> filteredTickets = jsonObject.Where(ticket => ticket.Subject == search).ToList();
+            List<Ticket> filteredTickets = jsonObject.Where(ticket => ticket.Subject.Contains(search)).ToList();
             jsonString = JsonConvert.SerializeObject(filteredTickets, Formatting.Indented);
 
             return jsonString;
