@@ -19,9 +19,24 @@ public class TicketController : ControllerBase
 
 
     [HttpGet("GetTicket", Name = "GetTicket")]
-    public async Task<string> GetTicket()
+    public async Task<string> GetTicket(string? search)
     {
-        return System.IO.File.ReadAllText("ticketDB.json");
+        if (String.IsNullOrEmpty(search))
+        {
+            return System.IO.File.ReadAllText("ticketDB.json");
+        }
+
+        else
+        {
+            var jsonString = System.IO.File.ReadAllText("ticketDB.json");
+            List<Ticket> jsonObject = JsonConvert.DeserializeObject<List<Ticket>>(jsonString);
+
+
+            List<Ticket> filteredTickets = jsonObject.Where(ticket => ticket.Subject == search).ToList();
+            jsonString = JsonConvert.SerializeObject(filteredTickets, Formatting.Indented);
+
+            return jsonString;
+        }
     }
 
 
